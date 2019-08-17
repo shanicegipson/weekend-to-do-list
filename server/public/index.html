@@ -5,13 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <script src="vendors/jquery.min.js"></script>
     <script src="scripts/client.js"></script>
 
-    <title>Document</title>
+    <title>My To DO List!</title>
 </head>
 <body>
-    <p>Hello Shanice!</p>
+    <section class="inputField">
+    <p>Add task below</p>
+    <input type="text" name="toDOIn" class="toDo" placeholder="Task">
+    <input type="date" name="dueDateIn" class="dueDate" placeholder="Completed By:">
+    <button type="button" class="addButton">Add Task!</button>
+    </section>
+
+<section class="taskList">
+    <h2>To Do List:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Complete</th>
+                <th>Task</th>
+                <th>Completed By:</th>
+                <th>Completed</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+    </table>
+    
+</section>
 </body>
 </html>

@@ -6,36 +6,37 @@ const taskRouter = express.Router();
 const pool = require('../modules/pool');
 
 // GET
-// koalaRouter.get('/', (req, res) => {
-//     const queryText = 'SELECT * FROM "koalas";';
+taskRouter.get('/', (req, res) => {
+    const queryText = 'SELECT * FROM "task";';
 
-//     pool.query(queryText)
-//         .then((result) => {
-//             console.log(result)
-//             res.send(result.rows);
-//         })
-//         .catch((err) => {
-//             console.log('Error: ', err);
-//             res.sendStatus(500);
-//         });
-// });
+    pool.query(queryText)
+        .then((result) => {
+            console.log(result)
+            res.send(result.rows);
+        })
+        .catch((err) => {
+            console.log('Error: ', err);
+            res.sendStatus(500);
+        });
+});
 
 // POST
-// koalaRouter.post('/', (req, res) => {
-//     const newKoala = req.body;
-//     const queryText = `INSERT INTO "koalas" ("name", "gender", "age", "ready_to_transfer", "notes")
-//                         VALUES ($1, $2, $3, $4, $5);`;
-//     console.log('Meow', newKoala.readyForTransfer);
-//     pool.query(queryText, [newKoala.name, newKoala.gender, newKoala.age, newKoala.readyForTransfer, newKoala.notes ])
-//         .then((result) => {
-//             res.sendStatus(201);
-//         })
-//         .catch((err) => {
-//             console.log('Error posting: ', err);
-//             res.sendStatus(500);
-//         });
+taskRouter.post('/', (req, res) => {
+    const newTask = req.body;
+    console.log(newTask);
+    const queryText = `INSERT INTO "task" ("task", "date")
+                        VALUES ($1, $2);`;
+    console.log( newTask.task);
+    pool.query(queryText, [newTask.task, newTask.date])
+        .then((result) => {
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            console.log('Error posting: ', err);
+            res.sendStatus(500);
+        });
 
-// });
+});
 
 // PUT
 // koalaRouter.put('/:id', (req, res) => {
