@@ -23,7 +23,6 @@ taskRouter.get('/', (req, res) => {
 // POST
 taskRouter.post('/', (req, res) => {
     const newTask = req.body;
-    console.log(newTask);
     const queryText = `INSERT INTO "task" ("task", "date")
                         VALUES ($1, $2);`;
     console.log( newTask.task);
@@ -57,19 +56,19 @@ taskRouter.post('/', (req, res) => {
 
 
 // DELETE
-// koalaRouter.delete('/:id', (req, res) => {
-//     console.log(req.params);
+taskRouter.delete('/:id', (req, res) => {
+    console.log(req.params);
 
-//     const queryText = `DELETE FROM "koalas" WHERE id=$1`;
+    const queryText = `DELETE FROM "task" WHERE id=$1`;
 
-//     pool.query(queryText, [req.params.id])
-//         .then((result) => {
-//             res.sendStatus(200);
-//         })
-//         .catch((err) => {
-//             console.log('Error deleting: ', err);
-//             res.sendStatus(500);
-//         });
-// });
+    pool.query(queryText, [req.params.id])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('Error deleting: ', err);
+            res.sendStatus(500);
+        });
+});
 
 module.exports = taskRouter;

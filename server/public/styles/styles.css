@@ -5,3 +5,22 @@ body {
 p {
     color: palevioletred;
 }
+
+table,th {
+    border: 2px solid black;
+    
+}
+
+table {
+    width: 100%;
+  }
+
+  th {
+    height: 50px;
+    width: 100%;
+  }
+
+.inputField {
+    text-align: center;
+    box-sizing: content-box 3px;
+}
