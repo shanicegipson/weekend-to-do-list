@@ -38,21 +38,20 @@ taskRouter.post('/', (req, res) => {
 });
 
 // PUT
-// koalaRouter.put('/:id', (req, res) => {
-//     // const koalaObject = req.body;
-//     const koalaId = req.params.id;
+taskRouter.put('/:id', (req, res) => {
+    const taskId = req.params.id;
     
-//     const queryText = `UPDATE "koalas" SET "ready_to_transfer"='Y' WHERE id=$1;`;
+    const queryText = `UPDATE "task" SET "status"='not to complete' WHERE id=$1;`;
 
-//     pool.query(queryText, [koalaId])
-//         .then((result) => {
-//             res.sendStatus(200);
-//         })
-//         .catch((err) => {
-//             console.log('Error updating database: ', err);
-//             res.sendStatus(500);
-//         });
-// });
+    pool.query(queryText, [taskId])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('Error updating database: ', err);
+            res.sendStatus(500);
+        });
+});
 
 
 // DELETE

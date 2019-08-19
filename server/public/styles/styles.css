@@ -13,14 +13,29 @@ table,th {
 
 table {
     width: 100%;
+    border-collapse: collapse;
   }
 
-  th {
+  th, td {
     height: 50px;
-    width: 100%;
+    width: 25%; 
+    
   }
 
 .inputField {
     text-align: center;
-    box-sizing: content-box 3px;
+    border: 20px solid palevioletred;
+    padding-bottom: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+td {
+    text-align: center;
+    border: 2px solid black;
+    
+}
+
+tr {
+    border: 2px solid black;
 }
